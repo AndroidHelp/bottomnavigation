@@ -8,17 +8,17 @@ Using Maven
 <dependency>
   <groupId>com.katariya.bottomnavigation</groupId>
   <artifactId>bottomnavigation</artifactId>
-  <version>1.3</version>
+  <version>1.3.1</version>
   <type>pom</type>
 </dependency>
 ````
 Using Gradle
 ````
-compile 'com.katariya.bottomnavigation:bottomnavigation:1.3'
+compile 'com.katariya.bottomnavigation:bottomnavigation:1.3.1'
 ````
 Using Ivy
 ````
-<dependency org='com.katariya.bottomnavigation' name='bottomnavigation' rev='1.3'>
+<dependency org='com.katariya.bottomnavigation' name='bottomnavigation' rev='1.3.1'>
   <artifact name='bottomnavigation' ext='pom' ></artifact>
 </dependency>
 ````
@@ -128,9 +128,5 @@ Index: example pass 0 for first item and count is for badge quantity
 ###### Limitations
 if you add more item(more then 5,6), some icon or text can be have size/cut/invisible issues 
 
-![Alt text](/screenshots/1.png?raw=true "Optional Title") | ![Alt text](/screenshots/2.png?raw=true "Optional Title")
-
-![Alt text](/screenshots/3.png?raw=true "Optional Title") | ![Alt text](/screenshots/4.png?raw=true "Optional Title")
-
-![Alt text](/screenshots/5.png?raw=true "Optional Title") | ![Alt text](/screenshots/6.png?raw=true "Optional Title")
+![Alt text](/device-2019-04-30-112546.png?raw=true "Optional Title") 
 
