@@ -33,8 +33,10 @@ Using Ivy
 ```
 ## Note:
 Add following line in gradle.properties
+````
 android.useAndroidX=true
 android.enableJetifier=true
+````
 
 Add above properties in xml view
   1. tab_background_color : for adding/change tab background color
