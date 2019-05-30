@@ -17,7 +17,6 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import java.util.*
 
-
 class BottomNavigationView : LinearLayout {
 
     private lateinit var bottomMenuListener: BottomMenuListener
