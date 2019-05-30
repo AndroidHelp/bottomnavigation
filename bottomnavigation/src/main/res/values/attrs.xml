@@ -2,22 +2,24 @@
 <resources>
 
     <declare-styleable name="BottomNavigationView">
-        
+
         <attr name="tab_background_color" format="color"></attr>
         <attr name="tab_selected_item_background_color" format="color"></attr>
         <attr name="tab_selected_item_text_color" format="color"></attr>
-        <attr name="tab_item_text_size" format="integer"></attr>
+        <attr name="tab_item_text_size" format="dimension"></attr>
         <attr name="tab_unselected_item_text_color" format="color"></attr>
         <attr name="tab_badge_item_text_color" format="color"></attr>
-        <attr name="tab_badge_text_size" format="integer"></attr>
+        <attr name="tab_badge_text_size" format="dimension"></attr>
         <attr name="tab_badge_background_color" format="color"></attr>
         <attr name="tab_badge_background_border_color" format="color"></attr>
-        <attr name="tab_badge_background_border_size" format="integer"></attr>
-        <attr name="tab_icon_unselected_width" format="integer"></attr>
-        <attr name="tab_icon_unselected_height" format="integer"></attr>
-        <attr name="tab_icon_selected_width" format="integer"></attr>
-        <attr name="tab_icon_selected_height" format="integer"></attr>
-        <attr name="tab_margin_in_icon_text_in_selected" format="integer"></attr>
-        <attr name="tab_margin_in_icon_text_in_unselected" format="integer"></attr>
+        <attr name="tab_badge_background_border_size" format="dimension"></attr>
+        <attr name="tab_badge_background_width" format="dimension"></attr>
+        <attr name="tab_badge_background_height" format="dimension"></attr>
+        <attr name="tab_icon_unselected_width" format="dimension"></attr>
+        <attr name="tab_icon_unselected_height" format="dimension"></attr>
+        <attr name="tab_icon_selected_width" format="dimension"></attr>
+        <attr name="tab_icon_selected_height" format="dimension"></attr>
+        <attr name="tab_margin_in_icon_text_in_selected" format="dimension"></attr>
+        <attr name="tab_margin_in_icon_text_in_unselected" format="dimension"></attr>
     </declare-styleable>
 </resources>

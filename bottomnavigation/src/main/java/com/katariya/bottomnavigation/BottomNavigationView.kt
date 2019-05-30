@@ -31,9 +31,11 @@ class BottomNavigationView : LinearLayout {
     private var tab_badge_item_text_color: Int
     private var tab_badge_background_color: Int
 
-    private var tab_item_text_size: Float
-    private var tab_badge_text_size: Float
+    private var tab_item_text_size: Int
+    private var tab_badge_text_size: Int
     private var tab_badge_background_border_size: Int
+    private var tab_badge_background_width: Int
+    private var tab_badge_background_height: Int
 
     private var tab_icon_unselected_width: Int
     private var tab_icon_unselected_height: Int
@@ -65,21 +67,27 @@ class BottomNavigationView : LinearLayout {
         tab_badge_background_color =
             attributes.getColor(R.styleable.BottomNavigationView_tab_badge_background_color, Color.RED)
 
-        tab_item_text_size = attributes.getFloat(R.styleable.BottomNavigationView_tab_item_text_size, 12F)
-        tab_badge_text_size = attributes.getFloat(R.styleable.BottomNavigationView_tab_badge_text_size, 9F)
+        tab_item_text_size = attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_item_text_size, 12)
+        tab_badge_text_size = attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_badge_text_size, 9)
         tab_badge_background_border_size =
-            attributes.getInteger(R.styleable.BottomNavigationView_tab_badge_background_border_size, 2)
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_badge_background_border_size, 2)
+        tab_badge_background_width =
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_badge_background_width, 40)
+        tab_badge_background_height =
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_badge_background_height, 40)
         tab_icon_unselected_width =
-            attributes.getInteger(R.styleable.BottomNavigationView_tab_icon_unselected_width, 55)
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_icon_unselected_width, 48)
         tab_icon_unselected_height =
-            attributes.getInteger(R.styleable.BottomNavigationView_tab_icon_unselected_height, 55)
-        tab_icon_selected_width = attributes.getInteger(R.styleable.BottomNavigationView_tab_icon_selected_width, 55)
-        tab_icon_selected_height = attributes.getInteger(R.styleable.BottomNavigationView_tab_icon_selected_height, 55)
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_icon_unselected_height, 48)
+        tab_icon_selected_width =
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_icon_selected_width, 56)
+        tab_icon_selected_height =
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_icon_selected_height, 56)
 
         tab_margin_in_icon_text_in_selected =
-            attributes.getInteger(R.styleable.BottomNavigationView_tab_margin_in_icon_text_in_selected, 5)
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_margin_in_icon_text_in_selected, 5)
         tab_margin_in_icon_text_in_unselected =
-            attributes.getInteger(R.styleable.BottomNavigationView_tab_margin_in_icon_text_in_unselected, 5)
+            attributes.getDimensionPixelSize(R.styleable.BottomNavigationView_tab_margin_in_icon_text_in_unselected, 5)
 
         parentLayout.setBackgroundColor(tab_background_color)
     }
@@ -99,9 +107,8 @@ class BottomNavigationView : LinearLayout {
 
         listItems.forEachIndexed { index, item ->
             val paramsMM = FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
-            val paramsWW = LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-            val paramsMMW =
-                LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1.0.toFloat())
+            val paramsWW = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+            val paramsMMW = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1.0.toFloat())
 
             var linearLayout = LinearLayout(context)
             linearLayout.orientation = VERTICAL
@@ -123,10 +130,10 @@ class BottomNavigationView : LinearLayout {
                 val txtBadge = TextView(context)
                 txtBadge.id = index
                 txtBadge.gravity = Gravity.CENTER
-                txtBadge.textSize = tab_badge_text_size
+                txtBadge.textSize = tab_badge_text_size.toFloat()
                 txtBadge.setTextColor(tab_badge_item_text_color)
 
-                val paramsBadge = LinearLayout.LayoutParams(25, 25)
+                val paramsBadge = LayoutParams(tab_badge_background_width, tab_badge_background_width)
                 paramsBadge.gravity = Gravity.CENTER
                 txtBadge.layoutParams = paramsBadge
                 txtBadge.visibility = View.INVISIBLE
@@ -135,13 +142,13 @@ class BottomNavigationView : LinearLayout {
                     txtBadge.background = getBadgeBackground()
                 }
 
-                val paramsBadgeM = FrameLayout.LayoutParams(25, 25)
+                val paramsBadgeM = FrameLayout.LayoutParams(tab_badge_background_width, tab_badge_background_width)
                 paramsBadgeM.gravity = Gravity.RIGHT
-
-                val paramsIconM = LinearLayout.LayoutParams(tab_icon_unselected_width, tab_icon_unselected_height)
+/*
+                val paramsIconM = LayoutParams(tab_icon_unselected_width, tab_icon_unselected_height)
                 paramsIconM.gravity = Gravity.CENTER
-                paramsIconM.setMargins(10, 10, 10, tab_margin_in_icon_text_in_unselected)
-                frameLayout.layoutParams = paramsIconM
+                paramsIconM.setMargins(10, 10, 0, tab_margin_in_icon_text_in_unselected)
+                frameLayout.layoutParams = paramsIconM*/
 
                 frameLayout.addView(icon)
                 frameLayout.addView(txtBadge, paramsBadgeM)
@@ -160,10 +167,10 @@ class BottomNavigationView : LinearLayout {
                     val txtBadge = TextView(context)
                     txtBadge.id = index
                     txtBadge.gravity = Gravity.CENTER
-                    txtBadge.textSize = tab_badge_text_size
+                    txtBadge.textSize = tab_badge_text_size.toFloat()
                     txtBadge.setTextColor(tab_badge_item_text_color)
 
-                    val paramsBadge = LinearLayout.LayoutParams(25, 25)
+                    val paramsBadge = LayoutParams(tab_badge_background_width, tab_badge_background_width)
                     paramsBadge.gravity = Gravity.CENTER
                     txtBadge.layoutParams = paramsBadge
                     txtBadge.visibility = View.INVISIBLE
@@ -171,7 +178,7 @@ class BottomNavigationView : LinearLayout {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                         txtBadge.background = getBadgeBackground()
                     }
-                    val paramsBadgeM = FrameLayout.LayoutParams(25, 25)
+                    val paramsBadgeM = FrameLayout.LayoutParams(tab_badge_background_width, tab_badge_background_width)
                     paramsBadgeM.gravity = Gravity.RIGHT
                     paramsBadgeM.setMargins(0, 10, 10, 0)
 
@@ -184,7 +191,7 @@ class BottomNavigationView : LinearLayout {
                     val title = TextView(context)
                     title.gravity = Gravity.CENTER
                     title.id = index
-                    title.textSize = tab_item_text_size
+                    title.textSize = tab_item_text_size.toFloat()
                     title.text = item.name
                     title.setTextColor(tab_selected_item_text_color)
 
@@ -194,7 +201,7 @@ class BottomNavigationView : LinearLayout {
                     val title = TextView(context)
                     title.gravity = Gravity.CENTER
                     title.id = index
-                    title.textSize = tab_item_text_size
+                    title.textSize = tab_item_text_size.toFloat()
                     title.text = item.name
                     linearLayout.addView(title)
                     title.setTextColor(tab_unselected_item_text_color)
@@ -218,7 +225,7 @@ class BottomNavigationView : LinearLayout {
             val child = (parentLayout as ViewGroup).getChildAt(index)
             val frame = (child as ViewGroup).getChildAt(0)
             if (item.name != null) {
-                var text: View? = null
+                var text: View?
                 if (item.drawableUnselected != null) {
                     text = (frame as ViewGroup).getChildAt(1)
                 } else {
@@ -273,7 +280,6 @@ class BottomNavigationView : LinearLayout {
         listItems.forEachIndexed { index, item ->
             if (indexClicked == index) {
                 itemClicked(index, item)
-                bottomMenuListener.bottomNavigationViewItemClickListener(index)
             } else {
                 itemNotClicked(index, item)
             }
@@ -286,7 +292,7 @@ class BottomNavigationView : LinearLayout {
         if (item.drawableUnselected != null) {
             val frame = (child as ViewGroup).getChildAt(0)
             val icon = (frame as ViewGroup).getChildAt(0)
-            val params = LinearLayout.LayoutParams(tab_icon_selected_width, tab_icon_selected_height)
+            val params = LayoutParams(tab_icon_selected_width, tab_icon_selected_height)
             params.gravity = Gravity.CENTER
             params.setMargins(10, 10, 10, tab_margin_in_icon_text_in_selected)
             frame.layoutParams = params
@@ -306,6 +312,7 @@ class BottomNavigationView : LinearLayout {
             }
             childTextView.setTextColor(tab_selected_item_text_color)
         }
+        child.isClickable = false
     }
 
     private fun itemNotClicked(index: Int, item: Item) {
@@ -313,7 +320,7 @@ class BottomNavigationView : LinearLayout {
         if (item.drawableUnselected != null) {
             val frame = (child as ViewGroup).getChildAt(0)
             val icon = (frame as ViewGroup).getChildAt(0)
-            val params = LinearLayout.LayoutParams(tab_icon_unselected_width, tab_icon_unselected_height)
+            val params = LayoutParams(tab_icon_unselected_width, tab_icon_unselected_height)
             params.gravity = Gravity.CENTER
             params.setMargins(10, 10, 10, tab_margin_in_icon_text_in_unselected)
             frame.layoutParams = params
@@ -345,9 +352,10 @@ class BottomNavigationView : LinearLayout {
               childTextView.setTextColor(ContextCompat.getColor(context, R.color.colorBlack))
           }
           child.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))*/
+        child.isClickable = true
     }
 
-    fun getBadgeBackground(): GradientDrawable {
+    private fun getBadgeBackground(): GradientDrawable {
         val strokeWidth = tab_badge_background_border_size
         val strokeColor = tab_badge_background_color
         val fillColor = tab_badge_background_color
@@ -358,10 +366,21 @@ class BottomNavigationView : LinearLayout {
         return gD
     }
 
+    fun setSelected(indexClicked: Int) {
+
+        listItems.forEachIndexed { index, item ->
+            if (indexClicked == index) {
+                itemClicked(index, item)
+                bottomMenuListener.bottomNavigationViewItemClickListener(index)
+            } else {
+                itemNotClicked(index, item)
+            }
+        }
+    }
+
 
     interface BottomMenuListener {
 
         fun bottomNavigationViewItemClickListener(position: Int)
     }
-
 }
