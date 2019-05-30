@@ -31,6 +31,11 @@ Using Ivy
          android:layout_width="match_parent"
          android:layout_height="?android:actionBarSize"></com.katariya.bottomnavigation.BottomNavigationView>
 ```
+## Note:
+Add following line in gradle.properties
+android.useAndroidX=true
+android.enableJetifier=true
+
 Add above properties in xml view
   1. tab_background_color : for adding/change tab background color
   2. tab_selected_item_background_color : for adding/change tab selected item color
