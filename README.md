@@ -77,22 +77,19 @@ Add above properties in xml view
   15. tab_margin_in_icon_text_in_selected: for adding/change tab margin between icon and text when selected
   15. tab_margin_in_icon_text_in_unselected: for adding/change tab margin between icon and text when unselected
 ````
-   app:tab_background_color="@color/colorWhite"
-   app:tab_badge_background_border_color="@color/colorAccent"
-   app:tab_badge_background_border_size="2"
-   app:tab_badge_background_color="@color/colorRed"
-   app:tab_badge_item_text_color="@color/colorBlack"
-   app:tab_selected_item_background_color="@color/colorGreen"
-   app:tab_badge_text_size="10"
-   app:tab_item_text_size="12"
-   app:tab_selected_item_text_color="@color/colorGrey"
-   app:tab_unselected_item_text_color="@color/colorBlack"
-   app:tab_icon_selected_height="50"
-   app:tab_icon_selected_width="50"
-   app:tab_icon_unselected_width="55"
-   app:tab_icon_unselected_height="55"
-   app:tab_margin_in_icon_text_in_selected="5"
-   app:tab_margin_in_icon_text_in_unselected="6"
+     app:tab_background_color="@color/colorPrimaryDark"
+            app:tab_badge_background_height="14dp"
+            app:tab_badge_background_width="14dp"
+            app:tab_badge_text_size="3sp"
+            app:tab_icon_selected_height="28dp"
+            app:tab_icon_selected_width="28dp"
+            app:tab_icon_unselected_height="24dp"
+            app:tab_icon_unselected_width="24dp"
+            app:tab_margin_in_icon_text_in_selected="2dp"
+            app:tab_margin_in_icon_text_in_unselected="1dp"
+            app:tab_selected_item_background_color="@color/colorPrimaryDark"
+            app:tab_selected_item_text_color="@color/colorWhite"
+            app:tab_unselected_item_text_color="@color/colorGray"
 ````
 Initialization of BottomNavigationView
 
