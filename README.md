@@ -31,12 +31,33 @@ Using Ivy
          android:layout_width="match_parent"
          android:layout_height="?android:actionBarSize"></com.katariya.bottomnavigation.BottomNavigationView>
 ```
-## Note:
+### Note:
 Add following line in gradle.properties
 ````
 android.useAndroidX=true
 android.enableJetifier=true
 ````
+### Kotlin Support
+#### In Module:app
+````
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+````
+In dependencies
+````
+implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+````
+
+### In Project:ProjectName
+In buildscript
+````
+ ext.kotlin_version = '1.3.31'
+ ````
+In dependencies
+````
+ classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+ ````
+
 
 Add above properties in xml view
   1. tab_background_color : for adding/change tab background color
