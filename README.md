@@ -8,17 +8,17 @@ Using Maven
 <dependency>
   <groupId>com.katariya.bottomnavigation</groupId>
   <artifactId>bottomnavigation</artifactId>
-  <version>1.3.1</version>
+  <version>1.3.3</version>
   <type>pom</type>
 </dependency>
 ````
 Using Gradle
 ````
-compile 'com.katariya.bottomnavigation:bottomnavigation:1.3.1'
+compile 'com.katariya.bottomnavigation:bottomnavigation:1.3.3'
 ````
 Using Ivy
 ````
-<dependency org='com.katariya.bottomnavigation' name='bottomnavigation' rev='1.3.1'>
+<dependency org='com.katariya.bottomnavigation' name='bottomnavigation' rev='1.3.3'>
   <artifact name='bottomnavigation' ext='pom' ></artifact>
 </dependency>
 ````
