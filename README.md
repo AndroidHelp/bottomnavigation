@@ -156,7 +156,7 @@ Index: example pass 0 for first item and count is for badge quantity
 ###### Limitations
 if you add more item(more then 5,6), some icon or text can be have size/cut/invisible issues 
 
-![Alt text](/device-2019-04-30-112546.png?raw=true "Optional Title") 
+![Alt text](/text.png?raw=true "Optional Title") 
 ![Alt text](/iconswhite.png?raw=true "Icons") 
 ![Alt text](/icons_color.png?raw=true "Custom icons") 
 
