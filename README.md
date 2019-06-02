@@ -14,7 +14,7 @@ Using Maven
 ````
 Using Gradle
 ````
-compile 'com.katariya.bottomnavigation:bottomnavigation:1.3.3'
+implementation 'com.katariya.bottomnavigation:bottomnavigation:1.3.3'
 ````
 Using Ivy
 ````
